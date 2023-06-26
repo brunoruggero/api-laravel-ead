@@ -1,4 +1,4 @@
-# Setup Docker Laravel 8 com PHP 7.4
+# Project API Laravel EAD
 
 ### Passo a passo
 Clone Repositório
