@@ -17,7 +17,7 @@ class CourseResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => ucwords(strtolower($this->name)),
             'description' => $this->description,
             'image' => $this->image ? Storage::url($this->image) : '',
         ];
