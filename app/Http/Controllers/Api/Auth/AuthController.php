@@ -33,17 +33,17 @@ class AuthController extends Controller
         ]);
     }
 
-    // public function logout()
-    // {
-    //     auth()->user()->tokens()->delete();
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
 
-    //     return response()->json(['success' => true]);
-    // }
+        return response()->json(['success' => true]);
+    }
 
-    // public function me()
-    // {
-    //     $user = auth()->user();
+    public function me()
+    {
+        $user = auth()->user();
 
-    //     return new UserResource($user);
-    // }
+        return new UserResource($user);
+    }
 }
