@@ -7,11 +7,13 @@ use App\Models\User;
 
 class SupportRepository
 {
+    // use RepositoryTrait;
+
     protected $entity;
 
     public function __construct(Support $model)
     {
-        $this->entity = $model; 
+        $this->entity = $model;
     }
 
     public function getSupports(array $filters = [])
@@ -31,6 +33,18 @@ class SupportRepository
                         }
                     })
                     ->get();
+    }
+
+    public function createNewSupport(array $data): Support
+    {
+        $support = $this->getUserAuth()
+                        ->supports()
+                        ->create([
+                            'lesson_id' => $data['lesson'],
+                            'description' => $data['description'],
+                            'status' => $data['status'],
+                        ]);
+        return $support;
     }
 
     private function getUserAuth(): User
