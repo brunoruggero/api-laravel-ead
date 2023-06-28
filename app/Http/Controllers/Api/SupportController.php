@@ -31,5 +31,6 @@ class SupportController extends Controller
 
         return new SupportResource($support);
     }
-
+    
+    
 }
