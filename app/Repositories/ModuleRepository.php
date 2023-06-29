@@ -13,11 +13,12 @@ class ModuleRepository
         $this->entity = $model; 
     }
 
-    public function getModulesCourseById(string $course_id)
+    public function getModulesCourseById(string $courseId)
     {
         return $this->entity
-            ->where('course_id', $course_id)
-            ->get();
+                    ->with('lessons.views')
+                    ->where('course_id', $courseId)
+                    ->get();
     }
 
 }
