@@ -1,0 +1,12 @@
+### Configuração para trabalhar com testes de integração
+
+-> Editar arquivo: phpunit.xml
+    - Descomentar as linhas: DB_CONNECTION e DB_DATABASE
+
+-> Adicionar no arquivo: tests\TestCase.php
+    - Adicionar no USE: RefreshDatabase, para cada teste no projeto ele deletará os dados do banco.
+
+-> Criando primeiro teste
+    - Teste de Autenticação: php artisan make:test Api\\Auth\\AuthTest
+
+-> Rodar os testes: ./vendor/bin/phpunit ou php artisan test (a partir da versão 7.x)
