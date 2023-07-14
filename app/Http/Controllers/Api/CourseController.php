@@ -13,7 +13,7 @@ class CourseController extends Controller
 
     public function __construct(CourseRepository $courseRepository)
     {
-        $this->repository = $courseRepository; 
+        $this->repository = $courseRepository;
     }
 
     public function index()

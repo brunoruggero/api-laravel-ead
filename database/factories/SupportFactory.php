@@ -24,7 +24,7 @@ class SupportFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(), 
+            'user_id' => User::factory(),
             'lesson_id' => Lesson::factory(),
             'status' => 'P',
             'description' => $this->faker->sentence(20),

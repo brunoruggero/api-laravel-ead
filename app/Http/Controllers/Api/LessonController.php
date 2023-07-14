@@ -14,19 +14,19 @@ class LessonController extends Controller
 
     public function __construct(LessonRepository $lessonRepository)
     {
-        $this->repository = $lessonRepository; 
+        $this->repository = $lessonRepository;
     }
 
     public function index($moduleId)
     {
-       $lessons =  $this->repository->getLessonsByModuleId($moduleId);
+        $lessons = $this->repository->getLessonsByModuleId($moduleId);
 
-       return LessonResource::collection($lessons);
+        return LessonResource::collection($lessons);
     }
 
     public function show($id)
     {
-       return new LessonResource($this->repository->getLesson($id));
+        return new LessonResource($this->repository->getLesson($id));
     }
 
     public function viewed(StoreView $request)

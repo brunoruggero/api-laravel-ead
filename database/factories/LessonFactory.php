@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use App\Models\Lesson;
 use App\Models\Module;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class LessonFactory extends Factory
 {
@@ -23,7 +23,8 @@ class LessonFactory extends Factory
      */
     public function definition()
     {
-        $name =  $this->faker->unique()->name();
+        $name = $this->faker->unique()->name();
+
         return [
             'module_id' => Module::factory(),
             'name' => $name,

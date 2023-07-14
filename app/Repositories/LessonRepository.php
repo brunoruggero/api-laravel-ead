@@ -8,12 +8,12 @@ use App\Repositories\Traits\RepositoryTrait;
 class LessonRepository
 {
     use RepositoryTrait;
-    
+
     protected $entity;
 
     public function __construct(Lesson $model)
     {
-        $this->entity = $model; 
+        $this->entity = $model;
     }
 
     public function getLessonsByModuleId(string $moduleId)

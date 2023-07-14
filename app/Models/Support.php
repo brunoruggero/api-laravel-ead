@@ -11,14 +11,15 @@ class Support extends Model
     use HasFactory, UuidTrait;
 
     public $incrementing = false;
+
     protected $keyType = 'uuid';
 
     protected $fillable = ['status', 'description', 'lesson_id'];
 
     public $statusOptions = [
-        'P' => 'Pendente, Aguardando Professor.',
+        'P' => 'Pendente, Aguardando Professor',
         'A' => 'Aguardando Aluno',
-        'C' => 'Concluído'
+        'C' => 'Finalizado',
     ];
 
     public function user()

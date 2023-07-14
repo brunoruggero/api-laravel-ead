@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CourseFactory extends Factory
 {
     protected $model = Course::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,8 +18,7 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(),
-            'description' => $this->faker->sentence(50),
-            
+            'description' => $this->faker->sentence(20),
         ];
     }
 }

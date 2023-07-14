@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Models\Support;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class StoreSupport extends FormRequest
 {
@@ -27,7 +27,10 @@ class StoreSupport extends FormRequest
     {
         return [
             'lesson' => ['required', 'exists:lessons,id'],
-            'status' => ['required', Rule::in(array_keys($support->statusOptions))],
+            'status' => [
+                'required',
+                Rule::in(array_keys($support->statusOptions))
+            ],
             'description' => ['required', 'min:3', 'max:10000'],
         ];
     }

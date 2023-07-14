@@ -13,13 +13,14 @@ class ModuleController extends Controller
 
     public function __construct(ModuleRepository $moduleRepository)
     {
-        $this->repository = $moduleRepository; 
+        $this->repository = $moduleRepository;
     }
 
     public function index($courseId)
     {
-       $modules =  $this->repository->getModulesCourseById($courseId);
+        $modules = $this->repository->getModulesByCourseId($courseId);
 
-       return ModuleResource::collection($modules);
+        return ModuleResource::collection($modules);
     }
+
 }

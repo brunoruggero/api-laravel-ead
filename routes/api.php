@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Api\{
     CourseController,
-    ModuleController,
     LessonController,
+    ModuleController,
     ReplySupportController,
     SupportController
 };
@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\Auth\{
 use Illuminate\Support\Facades\Route;
 
 /**
- * Authenticator
+ * Auth
  */
 Route::post('/auth', [AuthController::class, 'auth']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
@@ -27,9 +27,10 @@ Route::post('/forgot-password', [ResetPasswordController::class, 'sendResetLink'
 Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])->middleware('guest');
 
 
-Route::middleware(['auth:sanctum'])->group(function (){
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/courses', [CourseController::class, 'index']);
     Route::get('/courses/{id}', [CourseController::class, 'show']);
+
     Route::get('/courses/{id}/modules', [ModuleController::class, 'index']);
 
     Route::get('/modules/{id}/lessons', [LessonController::class, 'index']);
@@ -44,7 +45,7 @@ Route::middleware(['auth:sanctum'])->group(function (){
     Route::post('/replies', [ReplySupportController::class, 'createReply']);
 });
 
-Route::get('/', function (){
+Route::get('/', function () {
     return response()->json([
         'success' => true,
     ]);

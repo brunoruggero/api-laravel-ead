@@ -11,6 +11,7 @@ class Lesson extends Model
     use HasFactory, UuidTrait;
 
     public $incrementing = false;
+
     protected $keyType = 'uuid';
 
     protected $fillable = ['name', 'description', 'video'];
@@ -23,8 +24,8 @@ class Lesson extends Model
     public function views()
     {
         return $this->hasMany(View::class)
-                    ->where(function ($query){
-                        if(auth()->check()){
+                    ->where(function ($query) {
+                        if (auth()->check()) {
                             return $query->where('user_id', auth()->user()->id);
                         }
                     });

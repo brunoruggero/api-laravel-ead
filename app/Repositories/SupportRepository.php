@@ -54,12 +54,13 @@ class SupportRepository
     public function createNewSupport(array $data): Support
     {
         $support = $this->getUserAuth()
-                        ->supports()
-                        ->create([
-                            'lesson_id' => $data['lesson'],
-                            'description' => $data['description'],
-                            'status' => $data['status'],
-                        ]);
+                ->supports()
+                ->create([
+                    'lesson_id' => $data['lesson'],
+                    'description' => $data['description'],
+                    'status' => $data['status'],
+                ]);
+
         return $support;
     }
 

@@ -41,8 +41,6 @@ class AuthTest extends TestCase
 
     public function test_logout()
     {
-        // $user = User::factory()->create();
-        // $token = $user->createToken('teste')->plainTextToken;
         $token = $this->createTokenUser();
 
         $response = $this->postJson('/logout', [], [
@@ -61,8 +59,6 @@ class AuthTest extends TestCase
 
     public function test_get_me()
     {
-        // $user = User::factory()->create();
-        // $token = $user->createToken('teste')->plainTextToken;
         $token = $this->createTokenUser();
 
         $response = $this->getJson('/me', [
